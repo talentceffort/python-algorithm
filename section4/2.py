@@ -2,6 +2,8 @@ import sys
 
 sys.stdin = open("section4/2.txt", "r")
 
+n, m = map(int, input().split())
+
 
 def Count(len):
     cnt = 0
@@ -9,8 +11,6 @@ def Count(len):
         cnt += x // len
         return cnt
 
-
-n, m = map(int, input().split())
 
 Line = []
 
@@ -22,7 +22,6 @@ for _ in range(n):
     a = int(input())
     Line.append(a)
     largest = max(largest, a)
-
 
 lt = 1
 rt = largest
