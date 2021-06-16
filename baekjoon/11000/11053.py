@@ -15,9 +15,7 @@ T = int(stdin.readline())
 
 N = list(map(int, stdin.readline().split()))
 
-
 dp = [1] * T
-
 
 for i in range(T):
     for j in range(i):
