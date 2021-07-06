@@ -1,0 +1,35 @@
+# 자연수 N과 M이 주어졌을 때, 아래 조건을 만족하는 길이가 M인 수열을 모두 구하는 프로그램을 작성하시오.
+
+# 1부터 N까지 자연수 중에서 중복 없이 M개를 고른 수열
+
+# (1 ≤ M ≤ N ≤ 8)
+
+from sys import stdin
+
+stdin = open("15649.txt")
+
+N, M = map(int, stdin.readline().split())
+
+c = [False for _ in range(10)] # 숫자의 사용 여부를 알기 위한 배열
+
+a = [0 for _ in range(10)] # 결과를 저장 할 배열
+
+def go(index, n, m):
+    print("go (index ", index, n, m, ")")
+    if index == m:
+        # 수열 출력
+        print(*a[:m])
+        return
+    for i in range(1, n + 1):
+        print("현재 c[i] 와 i ===> ", c[i], i)
+        if c[i]:
+            continue
+        c[i] = True
+        print("c[i]변경 ===>", c[i])
+        a[index] = i
+        print("a[index]변경 ===>", a[index])
+        print("index", index + 1)
+        go(index + 1, n, m)
+        c[i] = False
+
+go(0, N, M)
