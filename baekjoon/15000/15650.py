@@ -4,7 +4,7 @@
 
 # (1 ≤ M ≤ N ≤ 8)
 
-from sys import stdin
+from sys import stdin, stdout
 
 stdin = open("15649.txt")
 
@@ -12,13 +12,30 @@ N, M = map(int, stdin.readline().split())
 
 a = [0 for _ in range(10)] # 결과를 저장 할 배열
 
-def go(index, start, n, m):
-    if index == m:
-        # 수열 출력
+# N 과 M 에서 선택방식으로 2^N 의 시간복잡도를 가짐. 이 방식이 N 과 M 에서의 핵심.
+
+def go(index, selected, n, m):
+    if selected == m:
+        # stdout.write(' '.join(map(str,a))+'\n')
         print(*a[:m])
         return
-    for i in range(start, n + 1):
-        a[index] = i
-        go(index + 1, i + 1, n, m)
+    if index > n:
+        return
+    a[selected] = index
+    go(index + 1, selected + 1, n, m)
+    a[selected] = 0
+    go(index + 1, selected, n, m)
 
-go(0, 1, N, M)
+go(1, 0, N, M)
+
+# def go(index, start, n, m):
+#     if index == m:
+#         # 수열 출력
+#         print(*a[:m])
+#         return
+#     for i in range(start, n + 1):
+#         a[index] = i
+#         go(index + 1, i + 1, n, m)
+#
+# go(0, 1, N, M)
+
