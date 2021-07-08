@@ -22,9 +22,9 @@ def go(index, selected, n, m):
     if index > n:
         return
     a[selected] = index
-    go(index + 1, selected + 1, n, m)
+    go(index + 1, selected + 1, n, m) # index 의 결과에 추가
     a[selected] = 0
-    go(index + 1, selected, n, m)
+    go(index + 1, selected, n, m) # index 를 결과에 추가 하지 않음
 
 go(1, 0, N, M)
 

@@ -15,20 +15,15 @@ c = [False for _ in range(10)] # 숫자의 사용 여부를 알기 위한 배열
 a = [0 for _ in range(10)] # 결과를 저장 할 배열
 
 def go(index, n, m):
-    print("go (index ", index, n, m, ")")
     if index == m:
         # 수열 출력
         print(*a[:m])
         return
     for i in range(1, n + 1):
-        print("현재 c[i] 와 i ===> ", c[i], i)
         if c[i]:
             continue
         c[i] = True
-        print("c[i]변경 ===>", c[i])
         a[index] = i
-        print("a[index]변경 ===>", a[index])
-        print("index", index + 1)
         go(index + 1, n, m)
         c[i] = False
 
