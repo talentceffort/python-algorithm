@@ -1,10 +1,10 @@
 from sys import stdin
 
-def next_permutation(a):
+def prev_permutation(a):
     i = len(a) - 1
 
-    # 1. A[i - 1] < A[i] 를 만족하는 가장 큰 i 를 찾음
-    while i > 0 and a[i - 1] >= a[i]:
+    # 1. A[i - 1] > A[i] 를 만족하는 가장 큰 i 를 찾음
+    while i > 0 and a[i - 1] <= a[i]:
         i -= 1
 
     # i 가 -1 이면 False 리턴
@@ -13,8 +13,8 @@ def next_permutation(a):
 
     j = len(a) - 1
 
-    # 2. j >= i 이면서 A[j] > A[i - 1] 을 만족하는 가장 큰 j 를 찾는다.
-    while a[j] <= a[i - 1]:
+    # 2. j >= i 이면서 A[j] < A[i - 1] 을 만족하는 가장 큰 j 를 찾는다.
+    while a[j] >= a[i - 1]:
         j -= 1
 
     # 3. A[i - 1] 과 A[j] 를 위치를 변경.
@@ -30,12 +30,12 @@ def next_permutation(a):
 
     return True
 
-stdin = open("10972.txt")
+stdin = open("10973.txt")
 
 n = int(stdin.readline())
 a = list(map(int, stdin.readline().split()))
 
-if next_permutation(a):
+if prev_permutation(a):
     # print(' '.join(map(str, a)))
     print(*a)
 else:
