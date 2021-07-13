@@ -1,50 +1,23 @@
-# 이진 변환의 횟수와 변환 과정에서 제거된 모든 0의 개수
+def solution(n):
+    num = [1, 2, 4]
 
-def solution(s):
-    zero_stack = []
-    one_stack =[]
+    answer = ''
 
-    zero_count = 0
-    con_count = 0
+    while True:
+        n -= 1
 
-    pivot = s
+        temp = n % 3
 
-    while pivot != "1":
-        for x in pivot:
-            if x == "0":
-                zero_stack.append(x)
-                zero_count += 1
-            elif x == "1":
-                one_stack.append(x)
+        n //= 3
 
-            print(one_stack)
-            print(zero_stack)
+        answer = str(num[temp]) + answer
 
-            binary = bin(len(one_stack))
-
-            pivot = (str(binary[2:]))
-
-            print("binary", binary)
-            print("pivot", pivot)
-
-            if binary == 0b1:
-                break
-            else:
-                zero_stack.clear()
-                one_stack.clear()
-                con_count += 1
+        if n <= 0:
+            break
 
 
-    print(zero_count)
-    print(con_count)
-
-
-    # print(bin(len(stack)))
-
-    # print(bin(6))
-
-    # print(0b11)
+    return answer
 
 
 
-print(solution("1111111"))
+
