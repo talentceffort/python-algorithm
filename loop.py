@@ -15,7 +15,7 @@ for i in range(10, 1, -1):
 i = 0
 while(i < 3):
     print(i)
-    i += 1
+    i +=1
 
 j = 0
 while True:
