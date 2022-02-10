@@ -8,10 +8,7 @@ def solution(scoville, K):
     for x in scoville:
         heapq.heappush(temp, x)
 
-
-
     while temp[0] <= K:
-
         if len(temp) == 1:
             return -1
 
@@ -22,7 +19,6 @@ def solution(scoville, K):
         answer += 1
 
     return answer
-
 
 
 print(solution([1, 2, 3, 9, 10, 12], 7))

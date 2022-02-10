@@ -15,9 +15,4 @@ def solution(n):
         if n <= 0:
             break
 
-
     return answer
-
-
-
-
