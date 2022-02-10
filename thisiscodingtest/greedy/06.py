@@ -16,8 +16,6 @@ def solution(food_times, k):
 
     q = []
 
-    print(food_times)
-
     for i in range(len(food_times)):
         # 튜플로 넣어주기
         heapq.heappush(q, (food_times[i], i + 1))
@@ -31,8 +29,8 @@ def solution(food_times, k):
     # 남은 음식의 개수
     length = len(food_times)
 
+    # sum_value + (현재의 음식 시간 - 이전 음식 시간) * 현재 음식 개수와 K 를 비교.
     while sum_value + ((q[0][0] - previous) * length) <= k:
-        print('q', q)
         now = heapq.heappop(q)[0]
         sum_value += (now - previous) * length
         length -= 1  # 다 먹은 음식 제외
