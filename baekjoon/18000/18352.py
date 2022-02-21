@@ -5,7 +5,6 @@ stdin = open("18352.txt")
 
 n, m, k, x = map(int, stdin.readline().split())
 
-
 graph = [[] for _ in range(n + 1)]
 
 for _ in range(m):
@@ -18,6 +17,8 @@ distance = [-1] * (n + 1)
 distance[x] = 0
 
 q = deque([x])
+
+print(q)
 
 while q:
     now = q.popleft()
